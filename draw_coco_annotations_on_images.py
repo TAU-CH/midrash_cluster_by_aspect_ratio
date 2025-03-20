@@ -9,10 +9,10 @@ def draw_annotations(image, annotations):
     """
     for ann in annotations:
         if 'bbox' in ann:
-            x, y, w, h = map(int, ann['bbox'])
+            x_tl, y_tl, w, h = map(int, ann['bbox'])
 
             # Draw the bounding box
-            cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 2)
+            cv2.rectangle(image, (x_tl, y_tl), (x_tl + w, y_tl + h), (255, 0, 0), 1)
 
     return image
 
@@ -36,11 +36,11 @@ def main(annotations_path, images_dir, output_dir):
         annotations_by_image[image_id].append(ann)
 
     # Process each image
-    for image_info in images:
+    for image_info in images: # per each main region in the image
         image_id = image_info.get('id')
         file_name = image_info.get('file_name')
-        image_path = os.path.join(images_dir, file_name)
-
+        manuscript_id = file_name[:file_name.find('.')][:-3]
+        image_path = os.path.join(os.path.join(images_dir, manuscript_id) ,file_name)
         if not os.path.exists(image_path):
             print(f"Image {file_name} not found in {images_dir}, skipping.")
             continue
