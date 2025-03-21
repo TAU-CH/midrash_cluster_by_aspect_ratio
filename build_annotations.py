@@ -1,5 +1,8 @@
 import json
 
+FIX_ANNOTATIONS_FLAG = True # assums that the wrong_annotations.json file exists and is in the same directory as this script
+
+# files to collect 
 hasty_file_names = [
     "final_annotations/Gal_asc_letter_annotation_frenchandgerman_hastyformat.json",
     "final_annotations/Gal_extra_asc_final_annotations_german_030_Hastyformat.json",
@@ -9,45 +12,67 @@ hasty_file_names = [
 
 coco_file_names = [
     "final_annotations/Daria_Berat_final_asc_letter_annotation_hastyformat.json",
-    "final_annotations/annotations_french.json",
-    "final_annotations/annotations_german.json"
 ]
+
+# info 
+info = {
+    "year": 2025,
+    "date_created": "2025-01-24T01:00:14Z",
+    "version": "1.0",
+    "description": "hebrew_letter_annotation",
+    "contributor": "",
+    }
 
 categories = [
     {
         "id": 1,
-        "name": "Aleph"
+        "name": "Aleph",
+        "supercategory": "object"
     },
     {
         "id": 2,
-        "name": "He"
+        "name": "He",
+        "supercategory": "object"
     },
     {
         "id": 3,
-        "name": "Mem"
+        "name": "Mem",
+        "supercategory": "object"
     },
     {
         "id": 4,
-        "name": "Shin"
+        "name": "Shin",
+        "supercategory": "object"
+
     },
         {
         "id": 5,
-        "name": "Mem Sofit"
+        "name": "Mem Sofit",
+        "supercategory": "object"
     },
     {
         "id": 6,
-        "name": "Tav"
+        "name": "Tav",
+        "supercategory": "object"
     }
 ]
+
+if FIX_ANNOTATIONS_FLAG:
+    wrong_annotations_path = r"wrong_annotations.json"
+    with open(wrong_annotations_path, "r") as f:
+        wrong_annotations_data = json.load(f)
+
 
 
 curr_annotation_id = 0
 
 
 result = {
+    'info': info.copy(),
+    'licenses': [],
+    'categories': categories.copy(),
     'images': [],
     'annotations': [],
-    'categories': categories.copy()
 }
 
 def map_image_id(image_name):
@@ -65,15 +90,30 @@ def get_category_id(class_name):
             return category['id']
     return -1
 
+def convert_hasty_bbox_to_coco_bbox(hasty_bbox):
+    if len(hasty_bbox) == 4:
+        x_tl, y_tl, x_br, y_br = map(int, hasty_bbox)   
+        width = x_br - x_tl
+        height = y_br - y_tl
+        coco_bbox = [x_tl, y_tl, width, height]
+        return coco_bbox
+    else: 
+        return []
+        
 
 def map_image_labels(labels, curr_image_id):
     global curr_annotation_id
     annotations = []
     for label in labels:
-        bbox = label.get('bbox')
+        bbox = label.get('bbox',[])
+        
+        bbox = convert_hasty_bbox_to_coco_bbox(bbox)
         class_name = label.get('class_name')
         category_id = get_category_id(class_name)
-        area = bbox[2] * bbox[3]
+        if len(bbox) !=4:
+            area = 0
+        else: 
+            area = bbox[2] * bbox[3]
         annotations.append(
             {
                 'id': curr_annotation_id,
@@ -81,13 +121,14 @@ def map_image_labels(labels, curr_image_id):
                 'category_id': category_id,
                 'bbox': bbox,
                 'area': area,
-                'iscrowd': 0
+                'iscrowd': 0,
+                'segmentation': None,
             }
         )
         curr_annotation_id += 1
     return annotations
 
-
+# Hasty json1.1 files 
 for file_name in hasty_file_names:
     with open(file_name, "r") as f:
         data = json.load(f)
@@ -97,17 +138,22 @@ for file_name in hasty_file_names:
         image_width = image.get('width')
         image_height = image.get('height')
         image_labels = image.get('labels')
+        
         result['images'].append(
             {
                 'id': map_image_id(image_name),
                 'file_name': image_name,
                 'width': image_width,
-                'height': image_height
+                'height': image_height,
+                'license': None,
+                'flickr_url': "",
+                'coco_url': None,
             }
         )
+
         result['annotations'].extend(map_image_labels(image_labels, map_image_id(image_name)))
 
-
+# COCO files 
 for file_name in coco_file_names:
     with open(file_name, "r") as f:
         data = json.load(f)
@@ -126,7 +172,10 @@ for file_name in coco_file_names:
                 'id': map_image_id(image_name),
                 'file_name': image_name,
                 'width': image_width,
-                'height': image_height
+                'height': image_height,
+                'license': None,
+                'flickr_url': "",
+                'coco_url': None,
             }
         )
         annotations_by_image[image.get('id')] = []
@@ -138,7 +187,9 @@ for file_name in coco_file_names:
                 'category_id': annotation['category_id'],
                 'bbox': annotation['bbox'],
                 'area': annotation['area'],
-                'iscrowd': 0
+                'iscrowd': 0,
+                'segmentation': None,
+
             }
         )
         curr_annotation_id += 1
@@ -146,5 +197,33 @@ for file_name in coco_file_names:
         result['annotations'].extend(annotations)
 
 
-with open('annotations.json', 'w') as f:
+annotations_output_filename = 'annotations.json'
+
+if FIX_ANNOTATIONS_FLAG:
+    print("Fixing the wrong annotations...")
+    # fix the wrong annotations before saving
+    for wrong_annotation in wrong_annotations_data:
+        print(f"\t Fixing annotation {wrong_annotation}")
+        for annotation in result['annotations']:
+            if annotation['image_id'] == int(wrong_annotation['image_id']) and annotation['id'] == int(wrong_annotation['id']):
+                print("\t\t Found annotation to fix ")
+                annotation['category_id'] = int(wrong_annotation['correct_category_id'])
+                print("\t\t Fixed annotation to ", annotation)
+                break
+
+    for indx,annotation in enumerate(result['annotations']):
+        if annotation['category_id'] == -1:
+            print(f"\tError: category_id is -1 in annotation {annotation}")
+            print(f"\tRemoving annotation {annotation}")
+            result['annotations'].pop(indx)
+
+    # fix in consistent annotation ids in case of removed annotations
+    print("Fixing unconsistent annotation ids n case of removed annotations..." )
+    for indx, annotation in enumerate(result['annotations']):
+        annotation['id'] = indx
+
+
+with open( annotations_output_filename , 'w') as f:
     json.dump(result, f, indent=4)
+
+print(f"The annotation file, {annotations_output_filename}, was successfuly created.")

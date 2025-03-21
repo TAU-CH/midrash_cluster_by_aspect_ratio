@@ -1,0 +1,6 @@
+6_1203_408_cropped.jpg: not a letter
+6_2400_1296_cropped.jpg: not a letter
+6_3301_8461_cropped.jpg: cut
+6_3301_8462_cropped.jpg: cut
+6_3301_8535_cropped.jpg: cut
+6_4000_4875_cropped.jpg: he?
