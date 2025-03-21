@@ -1,5 +1,7 @@
 import json
 
+FIX_ANNOTATIONS_FLAG = True # assums that the wrong_annotations.json file exists and is in the same directory as this script
+
 # files to collect 
 hasty_file_names = [
     "final_annotations/Gal_asc_letter_annotation_frenchandgerman_hastyformat.json",
@@ -54,6 +56,12 @@ categories = [
         "supercategory": "object"
     }
 ]
+
+if FIX_ANNOTATIONS_FLAG:
+    wrong_annotations_path = r"wrong_annotations.json"
+    with open(wrong_annotations_path, "r") as f:
+        wrong_annotations_data = json.load(f)
+
 
 
 curr_annotation_id = 0
@@ -190,6 +198,29 @@ for file_name in coco_file_names:
 
 
 annotations_output_filename = 'annotations.json'
+
+if FIX_ANNOTATIONS_FLAG:
+    print("Fixing the wrong annotations...")
+    # fix the wrong annotations before saving
+    for wrong_annotation in wrong_annotations_data:
+        print(f"\t Fixing annotation {wrong_annotation}")
+        for annotation in result['annotations']:
+            if annotation['image_id'] == int(wrong_annotation['image_id']) and annotation['id'] == int(wrong_annotation['id']):
+                print("\t\t Found annotation to fix ")
+                annotation['category_id'] = int(wrong_annotation['correct_category_id'])
+                print("\t\t Fixed annotation to ", annotation)
+                break
+
+    for indx,annotation in enumerate(result['annotations']):
+        if annotation['category_id'] == -1:
+            print(f"\tError: category_id is -1 in annotation {annotation}")
+            print(f"\tRemoving annotation {annotation}")
+            result['annotations'].pop(indx)
+
+    # fix in consistent annotation ids in case of removed annotations
+    print("Fixing unconsistent annotation ids n case of removed annotations..." )
+    for indx, annotation in enumerate(result['annotations']):
+        annotation['id'] = indx
 
 
 with open( annotations_output_filename , 'w') as f:
