@@ -1,0 +1,9 @@
+1_200_5726_cropped.jpg: shin
+1_201_5186_cropped.jpg: he
+1_201_5212_cropped.jpg: shin
+1_201_5218_cropped.jpg: shin
+1_2900_8083_cropped.jpg: not a letter
+1_4600_9565_cropped.jpg: not a letter
+1_800_5314_cropped.jpg: he
+1_800_5477_cropped.jpg: mem
+1_800_5540_cropped.jpg: shin

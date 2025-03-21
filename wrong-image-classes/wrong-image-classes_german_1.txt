@@ -1,0 +1,25 @@
+1_1200_1476_cropped.jpg: not a letter
+1_1202_100_cropped.jpg: not a letter
+1_2200_7498_cropped.jpg: he
+1_3000_1853_cropped.jpg: vav
+1_3303_9106_cropped.jpg: not a letter
+1_3303_9109_cropped.jpg: he
+1_3303_9131_cropped.jpg: mem
+1_3303_9145_cropped.jpg: mem
+1_3303_9185_cropped.jpg: he
+1_3303_9218_cropped.jpg: tav
+1_3304_8742_cropped.jpg: mem
+1_3304_8756_cropped.jpg: he
+1_3304_8773_cropped.jpg: shin
+1_3304_8841_cropped.jpg: shin
+1_3304_8856_cropped.jpg: he
+1_3305_7106_cropped.jpg: mem
+1_3305_7123_cropped.jpg: tav
+1_3305_7139_cropped.jpg: mem
+1_3305_7181_cropped.jpg: tav
+1_5800_6318_cropped.jpg: shin
+1_5800_6360_cropped.jpg: shin
+1_700_6426_cropped.jpg: mem sofit
+1_700_6608_cropped.jpg: shin
+1_700_6688_cropped.jpg: mem sofit
+1_700_6769_cropped.jpg: shin
