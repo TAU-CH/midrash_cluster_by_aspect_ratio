@@ -8,8 +8,8 @@ python build_annotations.py
 ```
 - Notice: Adjust the FIX_ANNOTATIONS_FLAG param as needed:
     -- FIX_ANNOTATIONS_FLAG = True, assumming that:
-        1) `wrong_annotations.json` exists 
-        2) and is in the same directory as this script.
+        1. `wrong_annotations.json` exists 
+        2. and is in the same directory as this script. 
     -- FIX_ANNOTATIONS_FLAG = False, doesn't fix wrong categories of the raw annotations files. 
 
 
@@ -34,4 +34,4 @@ For example, run this command:
 ```
 python draw_coco_annotations_on_images.py --annotations annotations.json --images_dir images/french/ --output_dir cropped_annotations/french --draw 
 ``` 
-use --show_annotated_image to show each annotated image. 
+- use --show_annotated_image to show each annotated image. 
