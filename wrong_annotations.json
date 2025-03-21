@@ -1,0 +1,352 @@
+[
+    {
+        "image_id": 200,
+        "id": 5726,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 201,
+        "id": 5186,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 201,
+        "id": 5212,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 201,
+        "id": 5218,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 2900,
+        "id": 8083,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 4600,
+        "id": 9565,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 800,
+        "id": 5314,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 800,
+        "id": 5477,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 800,
+        "id": 5540,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 4600,
+        "id": 9619,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 2
+    },
+    {
+        "image_id": 800,
+        "id": 5520,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 2
+    },
+    {
+        "image_id": 800,
+        "id": 5630,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 2
+    },
+    {
+        "image_id": 2000,
+        "id": 6236,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 3
+    },
+    {
+        "image_id": 4600,
+        "id": 9615,
+        "correct_category_name": "Mem Sofit",
+        "correct_category_id": 5,
+        "old_category": 3
+    },
+    {
+        "image_id": 4600,
+        "id": 9544,
+        "correct_category_name": "Ain",
+        "correct_category_id": -1,
+        "old_category": 4
+    },
+    {
+        "image_id": 5600,
+        "id": 6051,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 5
+    },
+    {
+        "image_id": 5600,
+        "id": 6096,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 5
+    },
+    {
+        "image_id": 800,
+        "id": 5335,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 6
+    },
+    {
+        "image_id": 1200,
+        "id": 1476,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 1202,
+        "id": 100,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 2200,
+        "id": 7498,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 3000,
+        "id": 1853,
+        "correct_category_name": "Vav",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9106,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9109,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9131,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9145,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9185,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 3303,
+        "id": 9218,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 1
+    },
+    {
+        "image_id": 3304,
+        "id": 8742,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 3304,
+        "id": 8756,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 3304,
+        "id": 8773,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 3304,
+        "id": 8841,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 3304,
+        "id": 8856,
+        "correct_category_name": "He",
+        "correct_category_id": 2,
+        "old_category": 1
+    },
+    {
+        "image_id": 3305,
+        "id": 7106,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 3305,
+        "id": 7123,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 1
+    },
+    {
+        "image_id": 3305,
+        "id": 7139,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 1
+    },
+    {
+        "image_id": 3305,
+        "id": 7181,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 1
+    },
+    {
+        "image_id": 5800,
+        "id": 6318,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 5800,
+        "id": 6360,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 700,
+        "id": 6426,
+        "correct_category_name": "Mem Sofit",
+        "correct_category_id": 5,
+        "old_category": 1
+    },
+    {
+        "image_id": 700,
+        "id": 6608,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 700,
+        "id": 6688,
+        "correct_category_name": "Mem Sofit",
+        "correct_category_id": 5,
+        "old_category": 1
+    },
+    {
+        "image_id": 700,
+        "id": 6769,
+        "correct_category_name": "Shin",
+        "correct_category_id": 4,
+        "old_category": 1
+    },
+    {
+        "image_id": 1700,
+        "id": 9487,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 2
+    },
+    {
+        "image_id": 2700,
+        "id": 160,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 4
+    },
+    {
+        "image_id": 700,
+        "id": 6726,
+        "correct_category_name": "Aleph",
+        "correct_category_id": 1,
+        "old_category": 4
+    },
+    {
+        "image_id": 1200,
+        "id": 1412,
+        "correct_category_name": "Tav",
+        "correct_category_id": 6,
+        "old_category": 5
+    },
+    {
+        "image_id": 402,
+        "id": 10067,
+        "correct_category_name": "Mem",
+        "correct_category_id": 3,
+        "old_category": 5
+    },
+    {
+        "image_id": 1203,
+        "id": 408,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 6
+    },
+    {
+        "image_id": 2400,
+        "id": 1296,
+        "correct_category_name": "Not A Letter",
+        "correct_category_id": -1,
+        "old_category": 6
+    }
+]
